@@ -42,8 +42,7 @@ def main():
         # If the bonus is not null, run what's next
         if bonus_passenger_get is not None:
             # Get the borrowing rate
-            borrowing_rate_get = borrowing_rate.borrowing_rate_function(grade_vehicule_get, grade_energy_get,
-                                                                        grade_mileage_get, grade_year_get)
+            borrowing_rate_get = borrowing_rate.borrowing_rate_function(grade_vehicule_get, grade_energy_get, grade_mileage_get, grade_year_get)
 
             # If the borrowing rate is not null, run what's next
             if borrowing_rate_get is not None:

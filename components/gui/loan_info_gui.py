@@ -46,8 +46,10 @@ def loan_info():
     entry_passenger.grid(row=4, column=1)
 
     # Define the button to calculate the eco note and the position
-    button = ttk.Button(window, text="🧮 Calculer l'éco 🌿 note et le taux d'intérêt 🏦", command=window.quit, padding=10)
-    button.grid(row=5, column=0, columnspan=2)
+    label_button = ttk.Label(window, text="🧮 Calculer l'éco 🌿 note et le taux d'intérêt 🏦", justify="left", font=("Arial", 15))
+    label_button.grid(row=5, column=0)
+    button = ttk.Button(window, text="--> Cliquez ici <--", command=window.quit, padding=10)
+    button.grid(row=5, column=1)
 
     # Create the window
     window.mainloop()
