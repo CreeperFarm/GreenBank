@@ -2,6 +2,34 @@
 import tkinter as tk
 from tkinter import ttk
 
+# Define the variables (The int value are by default -1 and not 0 because 0 is a possible value for each int variable)
+
+    # Define the variables from the subject
+
+vehicule_type = ""
+energy_type = ""
+mileage = -1
+year = -1
+passenger = -1
+
+    # Define the variables for the eco grade
+
+grade_vehicule = -1
+grade_energy = -1
+grade_mileage = -1
+grade_year = -1
+
+    # Define the variables for the bonus
+
+bonus_passenger = -1
+borrowing_rate = -1
+
+    # Define the variables from the Gui
+entry_vehicule_type = ""
+entry_energy_type = ""
+entry_mileage = -1
+entry_year = -1
+entry_passenger = -1
 
 # Calulate grade by vehicule type
 
@@ -454,10 +482,139 @@ def borrowing_rate(grade_eco_vehicule, grade_eco_energy, grade_eco_mileage, grad
     # Return the borrowing rate to the main program
     return borrowing_rate
 
+# Get information for the loan Gui
+def get_loan_info_gui(entry_vehicule_type, entry_energy_type, entry_mileage, entry_year, entry_passenger):
+
+    # Define the window and the title
+    window = tk.Tk()
+    window.title("Eco Note Calculator")
+
+    # Define the label for the vehicule type, the entry and the position
+    ttk.Label(window, text="Type de véhicule : ").grid(row=0, column=0)
+    entry_vehicule_type = ttk.Entry(window, width=30)
+    entry_vehicule_type.grid(row=0, column=1)
+
+    # Define the label for the energy type, the entry and the position
+    ttk.Label(window, text="Type d'énergie : ").grid(row=1, column=0)
+    entry_energy_type = ttk.Entry(window, width=30)
+    entry_energy_type.grid(row=1, column=1)
+
+    # Define the label for the mileage, the entry and the position
+    ttk.Label(window, text="Kilométrage par an : ").grid(row=2, column=0)
+    entry_mileage = ttk.Entry(window, width=30)
+    entry_mileage.grid(row=2, column=1)
+
+    # Define the label for the year, the entry and the position
+    ttk.Label(window, text="Année : ").grid(row=3, column=0)
+    entry_year = ttk.Entry(window, width=30)
+    entry_year.grid(row=3, column=1)
+
+    # Define the label for the number of passenger, the entry and the position
+    ttk.Label(window, text="Nombre de passagers : ").grid(row=4, column=0)
+    entry_passenger = ttk.Entry(window, width=30)
+    entry_passenger.grid(row=4, column=1)
+
+    # Define the button to calculate the eco note and the position
+    ttk.Button(window, text="Calculer l'éco note", command=window.quit).grid(row=5, column=0)
+
+    # Create the window 
+    window.mainloop()
+
+    # Get the information from the entry
+    entry_vehicule_type = entry_vehicule_type.get()
+    entry_energy_type = entry_energy_type.get()
+    entry_mileage = entry_mileage.get()
+    entry_year = entry_year.get()
+    entry_passenger = entry_passenger.get()
+
+    # Vérification des entrées pour voir si les cases sont bien remplies
+    if (entry_energy_type == "" or entry_vehicule_type == "" or entry_mileage == "" or entry_year == "" or entry_passenger == ""):
+        print("Il y a une erreur, toutes les cases ne sont pas remplies")
+
+        # Define the window error and show it
+        window_error = tk.Tk()
+        window_error.title("Il y a quelque erreur")
+
+        # Define the label for the error message and the position
+        ttk.Label(window_error, text="Il y a une erreur, toutes les cases ne sont pas remplies").grid(row=0, column=0)
+
+        # Define the button to close the window error and the position
+        ttk.Button(window_error, text="Fermer", command=window_error.quit).grid(row=1, column=0)
+
+        window_error.mainloop()
+
+    # Convert the entry to lower case
+    try:
+        entry_vehicule_type = entry_vehicule_type.lower()
+    # If the vehicule type is not a string, define it as an error
+    except AttributeError:
+        print("The vehicule type is not a string")
+        entry_vehicule_type = "err-notstring"
+
+    # Convert the entry to lower case
+    try:
+        entry_energy_type = entry_energy_type.lower()
+    # If the energy type is not a string, define it as an error
+    except AttributeError:
+        print("The energy type is not a string")
+        entry_energy_type = "err-notstring"
+
+    # Convert the entry to int
+    try:
+        entry_mileage = int(entry_mileage)
+    # If the mileage is not a number, define it as an error
+    except ValueError:
+        print("The mileage is not a number")
+        entry_mileage = "err-notnumber"
+
+    # Convert the entry to int
+    try:
+        entry_year = int(entry_year)
+    # If the year is not a number, define it as an error
+    except ValueError:
+        print("The year is not a number")
+        entry_year = "err-notnumber"
+    
+    # Convert the entry to int
+    try:
+        entry_passenger = int(entry_passenger)
+    # If the number of passenger is not a number, define it as an error
+    except ValueError:
+        print("The number of passenger is not a number")
+        entry_passenger = "err-notnumber"
+
+    # If there is an error, define the window error and show it
+    if (entry_mileage == "err-notnumber" or entry_year == "err-notnumber" or entry_passenger == "err-notnumber" or entry_vehicule_type == "err-notstring" or entry_energy_type == "err-notstring"):
+        window_error = tk.Tk()
+        window_error.title("Il y a quelque erreur")
+
+
+
+    # Return the information to the main program
+    return entry_vehicule_type, entry_energy_type, entry_mileage, entry_year, entry_passenger
+
 # Main Program
 def main():
 
+    # Get information for the loan Gui
+    get_loan_info_gui(entry_vehicule_type = entry_vehicule_type, entry_energy_type = entry_energy_type, entry_mileage = entry_mileage, entry_year = entry_year, entry_passenger = entry_passenger)
+    print(entry_energy_type)
+    # Get the grade to the vehicule type
+    grade_vehicule(entry_vehicule_type)
+
+    # Get the grade to the energy type
+    grade_energy(energy_type)
     
+    # Get the grade to the mileage
+    grade_mileage(mileage)
+
+    # Get the grade to the year
+    grade_year(year)
+
+    # Get the bonus to the number of passenger
+    bonus_passenger(passenger)
+
+
 
 # Launch main program
 main()
