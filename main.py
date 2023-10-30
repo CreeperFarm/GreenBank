@@ -2,239 +2,9 @@
 import tkinter as tk
 from tkinter import ttk
 
-# Define the variables (The int values are by default -1 and not 0 because 0 is a possible value for each int variable)
-
-# Define the variables from the subject
-
-"""vehicule_type = ""
-energy_type = ""
-mileage = -1
-year = -1
-passenger = -1
-
-    # Define the variables for the eco grade
-
-grade_vehicule = -1
-grade_energy = -1
-grade_mileage = -1
-grade_year = -1"""
-
-# Define the variables for the bonus
-
-"""bonus_passenger = -1
-borrowing_rate = -1
-
-    # Define the variables from the Gui
-entry_vehicule_type = ""
-entry_energy_type = ""
-entry_mileage = -1
-entry_year = -1
-entry_passenger = -1"""
-
-
-# Calculate grade by vehicule type
-
-
-def grade_vehicule(vehicule_type):
-    vehicule_type = str(vehicule_type)
-
-    # If vehicule type is citadine, the eco note is 8/10
-    if vehicule_type is "citadine":
-        # Print the eco note on the terminal
-        print("The eco note is 8/10 for a citadine")
-
-        # Define the grade of the vehicule (8/10)
-        grade_eco_vehicule = 8
-
-    # If vehicule type is cabriolet, the eco note is 6/10
-    elif vehicule_type is "cabriolet":
-
-        # Print the eco note on the terminal
-        print("The eco note is 6/10 for a cabriolet")
-
-        # Define the grade of the vehicule (6/10)
-        grade_eco_vehicule = 6
-
-    # If vehicule type is berline, the eco note is 6.5/10
-    elif vehicule_type is "berline":
-
-        # Print the eco note on the terminal
-        print("The eco note is 6.5/10 for a berline")
-
-        # Define the grade of the vehicule (6.5/10)
-        grade_eco_vehicule = 6.5
-
-    # If vehicule type is suv or a 4x4, the eco note is 4/10
-    elif vehicule_type is "suv" or "4x4":
-
-        # Print the eco note on the terminal
-        print("The eco note is 4/10 for a suv or a 4x4")
-
-        # Define the grade of the vehicule (4/10)
-        grade_eco_vehicule = 4
-
-    # If vehicule type is not recognized, the eco note is 'err'
-    else:
-
-        # Print the error message on the terminal
-        print("The type of vehicule is not recognized, the existing one are : citadine, cabriolet, berline, suv, 4x4")
-
-        # Define and error as grade of the vehicule ('err')
-        grade_eco_vehicule = "err-unknown"
-
-    # Return the grade of the vehicule to the main program
-    return grade_eco_vehicule
-
-
-# Calculate grade by energy type of the car
-
-
-def grade_energy(energy_type):
-    # If the energy type of the car is electric, the eco note is 9/10
-    if energy_type is "electrique" or "electric" or "électrique" or "électric":
-
-        # Print the eco note on the terminal
-        print("The eco note is 9/10 for an electric car")
-
-        # Define the grade of the energy (9/10)
-        grade_eco_energy = 9
-
-    # If the energy type of the car is hybrid, the eco note is 7/10
-    elif energy_type is "hybrid":
-
-        # Print the eco note on the terminal
-        print("The eco note is 7/10 for a hybrid car")
-
-        # Define the grade of the energy (7/10)
-        grade_eco_energy = 7
-
-    # If the energy type of the car is gas, the eco note is 6/10
-    elif energy_type is "gaz":
-
-        # Print the eco note on the terminal
-        print("The eco note is 6/10 for a gas car")
-
-        # Define the grade of the energy (6/10)
-        grade_eco_energy = 6
-
-    # If the energy type of the car is essence, the eco note is 5/10
-    elif energy_type is "essence":
-
-        # Print the eco note on the terminal
-        print("The eco note is 5/10 for an essence car")
-
-        # Define the grade of the energy (5/10)
-        grade_eco_energy = 5
-
-    # If the energy type of the car is diesel, the eco note is 4/10
-    elif energy_type is "diesel":
-
-        # Print the eco note on the terminal
-        print("The eco note is 4/10 for a diesel car")
-
-        # Define the grade of the energy (4/10)
-        grade_eco_energy = 4
-
-    else:
-
-        # Print the error message on the terminal
-        print("The type of energy is not recognized, the existing one are : electrique, hybrid, gaz, essence, diesel")
-
-        # Define and error as grade of the energy ('err')
-        grade_eco_energy = "err-unknown"
-
-    # Return the grade of the energy to the main program
-    return grade_eco_energy
-
-
-# Calculate grade by number of kilometers of the car (mileage per year)
-
-
-def grade_mileage(mileage):
-    # If mileage is under 5000 km per year, the eco note is 10/10 (This wasn't defined on the subject, but it's logic)
-    if 0 <= mileage < 5000:
-
-        # Print the eco note on the terminal
-        print("The eco note is 10/10 for a mileage under 5000 km per year")
-
-        # Define the grade of the mileage (10/10)
-        grade_eco_mileage = 10
-
-    # If mileage is between 5000 and 10000 km per year, the eco note is 9/10
-    elif 5000 <= mileage < 10000:
-
-        # Print the eco note on the terminal
-        print("The eco note is 9/10 for a milage between 5000 and 10000 km per year")
-
-        # Define the grade of the mileage (9/10)
-        grade_eco_mileage = 9
-
-    # If mileage is between 10000 and 15000 km per year, the eco note is 7/10
-    elif 10000 <= mileage < 15000:
-
-        # Print the eco note on the terminal
-        print("The eco note is 7/10 for a milage between 10000 and 15000 km per year")
-
-        # Define the grade of the mileage (7/10)
-        grade_eco_mileage = 7
-
-    # If mileage is between 15000 and 20000 km per year, the eco note is 5/10
-    elif 15000 <= mileage < 20000:
-
-        # Print the eco note on the terminal
-        print("The eco note is 5/10 for a milage between 15000 and 20000 km per year")
-
-        # Define the grade of the mileage (5/10)
-        grade_eco_mileage = 5
-
-    # If mileage is between 20000 and 25000 km per year, the eco note is 3/10
-    elif 20000 <= mileage < 25000:
-
-        # Print the eco note on the terminal
-        print("The eco note is 3/10 for a milage between 20000 and 25000 km per year")
-
-        # Define the grade of the mileage (3/10)
-        grade_eco_mileage = 3
-
-    # If mileage is between 25000 and 30000 km per year, the eco note is 1/10
-    elif 25000 <= mileage < 30000:
-
-        # Print the eco note on the terminal
-        print("The eco note is 1/10 for a milage between 25000 and 30000 km per year")
-
-        # Define the grade of the mileage (1/10)
-        grade_eco_mileage = 1
-
-    # If mileage is over 30000 km per year, the eco note is 0/10
-    elif mileage >= 30000:
-
-        # Print the eco note on the terminal
-        print("The eco note is 0/10 for a milage over 30000 km per year")
-
-        # Define the grade of the mileage (0/10)
-        grade_eco_mileage = 0
-
-    # If mileage is negative, the eco note is 'err' because it's not possible
-    elif mileage < 0:
-
-        # Print the error message on the terminal
-        print("The mileage is not possible, it can't be negative")
-
-        # Define and error as grade of the mileage ('err')
-        grade_eco_mileage = "err-negative"
-
-    # If mileage is not recognized, the eco note is 'err'
-    else:
-
-        # Print the error message on the terminal
-        print("The mileage is not recognized")
-
-        # Define and error as grade of the mileage ('err')
-        grade_eco_mileage = "err-unknown"
-
-    # Return the grade of the mileage to the main program
-    return grade_eco_mileage
-
+# Import the Gui
+from gui import final_gui, loan_info_gui
+from grade import vehicule_grade, energy_grade
 
 # Calculate grade by year of the car
 
@@ -485,57 +255,9 @@ def borrowing_rate_function(grade_eco_vehicule, grade_eco_energy, grade_eco_mile
 
 
 # Get information for the loan Gui
-def get_loan_info_gui():
-    # Define the window and the title
-    window = tk.Tk()
-    window.title("Eco Note Calculator")
-
-    # Define the label for the vehicule type, the entry and the position
-    ttk.Label(window, text="Type de véhicule : ").grid(row=0, column=0)
-    entry_vehicule_type = ttk.Entry(window, width=30)
-    entry_vehicule_type.grid(row=0, column=1)
-
-    # Define the label for the energy type, the entry and the position
-    ttk.Label(window, text="Type d'énergie : ").grid(row=1, column=0)
-    entry_energy_type = ttk.Entry(window, width=30)
-    entry_energy_type.grid(row=1, column=1)
-
-    # Define the label for the mileage, the entry and the position
-    ttk.Label(window, text="Kilométrage par an : ").grid(row=2, column=0)
-    entry_mileage = ttk.Entry(window, width=30)
-    entry_mileage.grid(row=2, column=1)
-
-    # Define the label for the year, the entry and the position
-    ttk.Label(window, text="Année : ").grid(row=3, column=0)
-    entry_year = ttk.Entry(window, width=30)
-    entry_year.grid(row=3, column=1)
-
-    # Define the label for the number of passengers, the entry and the position
-    ttk.Label(window, text="Nombre de passagers : ").grid(row=4, column=0)
-    entry_passenger = ttk.Entry(window, width=30)
-    entry_passenger.grid(row=4, column=1)
-
-    # Define the label for the cost of the car, the entry and the position
-    ttk.Label(window, text="Valeur de l'emprunt : ").grid(row=5, column=0)
-    entry_loan_value = ttk.Entry(window, width=30)
-    entry_loan_value.grid(row=5, column=1)
-
-    # Define the button to calculate the eco note and the position
-    ttk.Button(window, text="Calculer l'éco note", command=window.quit).grid(row=6, column=0)
-
-    # Create the window 
-    window.mainloop()
-
-    # Get the information from the entry
-    entry_vehicule_type = entry_vehicule_type.get()
-    entry_energy_type = entry_energy_type.get()
-    entry_mileage = entry_mileage.get()
-    entry_year = entry_year.get()
-    entry_passenger = entry_passenger.get()
-    entry_loan_value = entry_loan_value.get()
-
+def get_loan_info_gui(entry_energy_type, entry_vehicule_type, entry_mileage, entry_year, entry_passenger):
     # Vérification des entrées pour voir si les cases sont bien remplies
-    if entry_energy_type is "" or entry_vehicule_type is "" or entry_mileage is "" or entry_year is "" or entry_passenger is "" or entry_loan_value is "":
+    if entry_energy_type is "" or entry_vehicule_type is "" or entry_mileage is "" or entry_year is "" or entry_passenger is "":
         print("Il y a une erreur, toutes les cases ne sont pas remplies")
 
         # Define the window error and show it
@@ -590,51 +312,20 @@ def get_loan_info_gui():
         print("The number of passenger is not a number")
         entry_passenger = "err-notnumber"
 
-    # Remove '€' or '$' from the entry
-    try:
-        entry_loan_value = entry_loan_value.replace("€", "")
-        entry_loan_value = entry_loan_value.replace("$", "")
-        entry_loan_value = int(entry_loan_value.replace(" ", ""))
-    except ValueError:
-        print("The loan value is not a number")
-        entry_loan_value = "err-notnumber"
-
     # If there is an error, define the window error and show it
-    if entry_mileage is "err-notnumber" or entry_year is "err-notnumber" or entry_passenger is "err-notnumber" or entry_vehicule_type is "err-notstring" or entry_energy_type is "err-notstring" or entry_loan_value is "err-notnumber":
+    if entry_mileage is "err-notnumber" or entry_year is "err-notnumber" or entry_passenger is "err-notnumber" or entry_vehicule_type is "err-notstring" or entry_energy_type is "err-notstring":
         window_error = tk.Tk()
         window_error.title("Il y a quelque erreur")
         return window_error.mainloop()
     else:
         # Return the information to the main program
-        return entry_vehicule_type, entry_energy_type, entry_mileage, entry_year, entry_passenger, entry_loan_value
-
-
-# Final Gui to show the result
-
-def final_gui(borrowing_rate_percentage, entry_loan_value):
-    # Define the window and the title
-    window_final = tk.Tk()
-    window_final.title("Résultat du prêt")
-
-    # Show the borrowing rate
-    ttk.Label(window_final, text="Le taux d'emprunt est de : " + str(borrowing_rate_percentage * 100) + "%").grid(row=0,
-                                                                                                                  column=0)
-
-    # Show the loan value
-    ttk.Label(window_final, text="Le montant de l'emprunt est de : " + str(entry_loan_value) + "€").grid(row=1,
-                                                                                                         column=0)
-
-    # Show the total payment with borrowing rate
-    ttk.Label(window_final, text="Le montant total à payer est de : " + str(entry_loan_value * (1 + borrowing_rate_percentage)) + "€").grid(row=2, column=0)
-
-    # Show the window
-    window_final.mainloop()
+        return entry_vehicule_type, entry_energy_type, entry_mileage, entry_year, entry_passenger
 
 
 # Main Program
 def main():
     # Get information for the loan Gui
-    loan_info = get_loan_info_gui()
+    loan_info = loan_info_gui.loan_info()
 
     # Define the variables from the Gui
     entry_energy_type = loan_info[0]
@@ -642,16 +333,17 @@ def main():
     entry_mileage = loan_info[2]
     entry_year = loan_info[3]
     entry_passenger = loan_info[4]
-    entry_loan_value = loan_info[5]
+
+    # Verify the entries
 
     # Get the grade to the vehicule type
-    grade_vehicule_get = grade_vehicule(entry_vehicule_type)
+    grade_vehicule_get = vehicule_grade.grade_vehicule(entry_vehicule_type)
 
     # Get the grade to the energy type
-    grade_energy_get = grade_energy(entry_energy_type)
+    grade_energy_get = energy_grade.grade_energy(entry_energy_type)
 
     # Get the grade to the mileage
-    grade_mileage_get = grade_mileage(entry_mileage)
+    grade_mileage_get = mileage_grade.grade_mileage(entry_mileage)
 
     # Get the grade to the year
     grade_year_get = grade_year(entry_year)
@@ -665,7 +357,7 @@ def main():
 
     borrowing_rate_percentage = borrowing_rate_get + bonus_passenger_get
 
-    final_gui(borrowing_rate_percentage, entry_loan_value)
+    final_gui.final_gui(borrowing_rate_percentage)
 
 
 # Launch the main program
