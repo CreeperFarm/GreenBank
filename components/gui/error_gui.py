@@ -10,11 +10,11 @@ error_map = {
     "err-unknown": " est inconnu",
 }
 error_by_map = {
-    "vehicule": "Le type de véhicule entré",
-    "energy": "Le type d'énergie entré",
-    "mileage": "Le kilométrage entré",
-    "year": "L'année entrée",
-    "passenger": "Le nombre de passagers entré",
+    "vehicule": "(Berline, Cabriolet, Citadine, 4x4, SUV) Le type de véhicule entré",
+    "energy": "(Électrique, Essence, Gaz, Diesel, Hybride) Le type d'énergie entré",
+    "mileage": "(A partir de 0 ou 0k ex : 5k = 5000) Le kilométrage entré",
+    "year": "(De 1908 à 2025) L'année entrée",
+    "passenger": "(1 à 4) Le nombre de passagers entré",
     "borrowing": "Le taux d'emprunt calculé",
     " ": ""
 }
