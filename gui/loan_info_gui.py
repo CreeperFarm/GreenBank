@@ -1,6 +1,9 @@
 import tkinter as tk
 from tkinter import ttk
 
+# Import the error_gui function
+from gui import error_gui
+
 
 def loan_info():
     # Define the window and the title
@@ -45,4 +48,9 @@ def loan_info():
     entry_year = entry_year.get()
     entry_passenger = entry_passenger.get()
 
-    return entry_vehicule_type, entry_energy_type, entry_mileage, entry_year, entry_passenger
+    # Vérification des entrées pour voir si les cases sont bien remplies
+    if entry_energy_type is "" or entry_vehicule_type is "" or entry_mileage is "" or entry_year is "" or entry_passenger is "":
+        print("Il y a une erreur, toutes les cases ne sont pas remplies")
+        error_gui.error_gui("err-not-filled")
+    else:
+        return entry_vehicule_type, entry_energy_type, entry_mileage, entry_year, entry_passenger
