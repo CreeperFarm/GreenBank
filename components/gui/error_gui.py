@@ -1,6 +1,11 @@
+# Import Librairies
 import tkinter as tk
 from tkinter import ttk
 
+# Define style for the text
+fontStyle = ("Arial", 20)
+
+# Define map for the error
 error_map = {
     "err-not-filled": "Toutes les cases ne sont pas remplies",
     "err-not-string": " n'est pas une chaîne de caractère",
@@ -26,20 +31,22 @@ def error_gui(error_list, error_by):
     window_error.title("Il y a quelque erreur")
 
     # Show the error message
-    ttk.Label(window_error, text="Il y a quelque erreur, ce sont celle-ci:").grid(row=0, column=0)
+
     rowNumber = 1
 
     print(len(error_list))
     if len(error_list) is not int:
         # Show the error
-        ttk.Label(window_error, text=error_by_map[error_by] + error_map[error_list]).grid(row=rowNumber, column=0)
+        ttk.Label(window_error, text="Il y a une erreur, la voici:", font=fontStyle).grid(row=0, column=0)
+        ttk.Label(window_error, text=+ error_by_map[error_by] + error_map[error_list], font=fontStyle).grid(row=rowNumber, column=0)
 
         # Add one to the row
         rowNumber += 1
     else:
         for error in error_list:
             # Add one error field for each error
-            ttk.Label(window_error, text=error_by_map[error_by[rowNumber - 1]] + error_map[error]).grid(row=rowNumber, column=0)
+            ttk.Label(window_error, text="Il y a quelque erreur, ce sont celle-ci:", font=fontStyle).grid(row=0, column=0)
+            ttk.Label(window_error, text=error_by_map[error_by[rowNumber - 1]] + error_map[error], font=fontStyle).grid(row=rowNumber, column=0)
 
             # Add one to the row for every error
             rowNumber += 1

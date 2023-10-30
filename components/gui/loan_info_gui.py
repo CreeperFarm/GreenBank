@@ -4,6 +4,10 @@ from tkinter import ttk
 # Import the error_gui function
 from components.gui import error_gui
 
+fontStyle = ("Arial", 20)
+width_field = 15
+width_label = 21
+
 
 def loan_info():
     # Define the window and the title
@@ -11,32 +15,39 @@ def loan_info():
     window.title("Eco Note Calculator")
 
     # Define the label for the vehicule type, the entry and the position
-    ttk.Label(window, text="Type de véhicule : ").grid(row=0, column=0)
-    entry_vehicule_type = ttk.Entry(window, width=15)
+    label_vehicule_type = ttk.Label(window, text="🚗 Type de véhicule : ", justify="left", font=fontStyle,
+                                    width=width_label)
+    label_vehicule_type.grid(row=0, column=0)
+    entry_vehicule_type = ttk.Entry(window, width=width_field, font=fontStyle)
     entry_vehicule_type.grid(row=0, column=1)
 
     # Define the label for the energy type, the entry and the position
-    ttk.Label(window, text="Type d'énergie : ").grid(row=1, column=0)
-    entry_energy_type = ttk.Entry(window, width=15)
+    label_energy = ttk.Label(window, text="⚡ Type d'énergie : ", justify="left", font=fontStyle, width=width_label)
+    label_energy.grid(row=1, column=0)
+    entry_energy_type = ttk.Entry(window, width=width_field, font=fontStyle)
     entry_energy_type.grid(row=1, column=1)
 
     # Define the label for the mileage, the entry and the position
-    ttk.Label(window, text="Kilométrage par an : ").grid(row=2, column=0)
-    entry_mileage = ttk.Entry(window, width=15)
+    label_mileage = ttk.Label(window, text="📊 Kilométrage par an : ", justify="left", font=fontStyle, width=width_label)
+    label_mileage.grid(row=2, column=0)
+    entry_mileage = ttk.Entry(window, width=width_field, font=fontStyle)
     entry_mileage.grid(row=2, column=1)
 
     # Define the label for the year, the entry and the position
-    ttk.Label(window, text="Année : ").grid(row=3, column=0)
-    entry_year = ttk.Entry(window, width=15)
+    label_year = ttk.Label(window, text="🗓️ Année : ", justify="left", font=fontStyle, width=width_label)
+    label_year.grid(row=3, column=0)
+    entry_year = ttk.Entry(window, width=width_field, font=fontStyle)
     entry_year.grid(row=3, column=1)
 
     # Define the label for the number of passengers, the entry and the position
-    ttk.Label(window, text="Nombre de passagers : ").grid(row=4, column=0)
-    entry_passenger = ttk.Entry(window, width=15)
+    label_passenger = ttk.Label(window, text="👨‍👩‍👧‍👦 Nombre de passagers : ", justify="left", font=fontStyle, width=width_label)
+    label_passenger.grid(row=4, column=0)
+    entry_passenger = ttk.Entry(window, width=width_field, font=fontStyle)
     entry_passenger.grid(row=4, column=1)
 
     # Define the button to calculate the eco note and the position
-    ttk.Button(window, text="Calculer l'éco note", command=window.quit).grid(row=5, column=0, columnspan=2)
+    button = ttk.Button(window, text="🧮 Calculer l'éco 🌿 note et le taux d'intérêt 🏦", command=window.quit, padding=10)
+    button.grid(row=5, column=0, columnspan=2)
 
     # Create the window
     window.mainloop()
