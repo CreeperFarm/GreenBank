@@ -515,8 +515,13 @@ def get_loan_info_gui():
     entry_passenger = ttk.Entry(window, width=30)
     entry_passenger.grid(row=4, column=1)
 
+    # Define the label for the cost of the car, the entry and the position
+    ttk.Label(window, text="Valeur de l'emprunt : ").grid(row=5, column=0)
+    entry_loan_value = ttk.Entry(window, width=30)
+    entry_loan_value.grid(row=5, column=1)
+
     # Define the button to calculate the eco note and the position
-    ttk.Button(window, text="Calculer l'éco note", command=window.quit).grid(row=5, column=0)
+    ttk.Button(window, text="Calculer l'éco note", command=window.quit).grid(row=6, column=0)
 
     # Create the window 
     window.mainloop()
@@ -527,10 +532,10 @@ def get_loan_info_gui():
     entry_mileage = entry_mileage.get()
     entry_year = entry_year.get()
     entry_passenger = entry_passenger.get()
+    entry_loan_value = entry_loan_value.get()
 
     # Vérification des entrées pour voir si les cases sont bien remplies
-    if (
-            entry_energy_type is "" or entry_vehicule_type is "" or entry_mileage is "" or entry_year is "" or entry_passenger is ""):
+    if entry_energy_type is "" or entry_vehicule_type is "" or entry_mileage is "" or entry_year is "" or entry_passenger is "" or entry_loan_value is "":
         print("Il y a une erreur, toutes les cases ne sont pas remplies")
 
         # Define the window error and show it
@@ -585,15 +590,45 @@ def get_loan_info_gui():
         print("The number of passenger is not a number")
         entry_passenger = "err-notnumber"
 
+    # Remove '€' or '$' from the entry
+    try:
+        entry_loan_value = entry_loan_value.replace("€", "")
+        entry_loan_value = entry_loan_value.replace("$", "")
+        entry_loan_value = int(entry_loan_value.replace(" ", ""))
+    except ValueError:
+        print("The loan value is not a number")
+        entry_loan_value = "err-notnumber"
+
     # If there is an error, define the window error and show it
-    if (
-            entry_mileage is "err-notnumber" or entry_year is "err-notnumber" or entry_passenger is "err-notnumber" or entry_vehicule_type is "err-notstring" or entry_energy_type is "err-notstring"):
+    if entry_mileage is "err-notnumber" or entry_year is "err-notnumber" or entry_passenger is "err-notnumber" or entry_vehicule_type is "err-notstring" or entry_energy_type is "err-notstring" or entry_loan_value is "err-notnumber":
         window_error = tk.Tk()
         window_error.title("Il y a quelque erreur")
         return window_error.mainloop()
     else:
         # Return the information to the main program
-        return entry_vehicule_type, entry_energy_type, entry_mileage, entry_year, entry_passenger
+        return entry_vehicule_type, entry_energy_type, entry_mileage, entry_year, entry_passenger, entry_loan_value
+
+
+# Final Gui to show the result
+
+def final_gui(borrowing_rate_percentage, entry_loan_value):
+    # Define the window and the title
+    window_final = tk.Tk()
+    window_final.title("Résultat du prêt")
+
+    # Show the borrowing rate
+    ttk.Label(window_final, text="Le taux d'emprunt est de : " + str(borrowing_rate_percentage * 100) + "%").grid(row=0,
+                                                                                                                  column=0)
+
+    # Show the loan value
+    ttk.Label(window_final, text="Le montant de l'emprunt est de : " + str(entry_loan_value) + "€").grid(row=1,
+                                                                                                         column=0)
+
+    # Show the total payment with borrowing rate
+    ttk.Label(window_final, text="Le montant total à payer est de : " + str(entry_loan_value * (1 + borrowing_rate_percentage)) + "€").grid(row=2, column=0)
+
+    # Show the window
+    window_final.mainloop()
 
 
 # Main Program
@@ -607,6 +642,7 @@ def main():
     entry_mileage = loan_info[2]
     entry_year = loan_info[3]
     entry_passenger = loan_info[4]
+    entry_loan_value = loan_info[5]
 
     # Get the grade to the vehicule type
     grade_vehicule_get = grade_vehicule(entry_vehicule_type)
@@ -624,10 +660,12 @@ def main():
     bonus_passenger_get = bonus_passenger_function(entry_passenger)
 
     # Get the borrowing rate
-    borrowing_rate_get = borrowing_rate_function(grade_vehicule_get, grade_energy_get, grade_mileage_get, grade_year_get)
+    borrowing_rate_get = borrowing_rate_function(grade_vehicule_get, grade_energy_get, grade_mileage_get,
+                                                 grade_year_get)
 
     borrowing_rate_percentage = borrowing_rate_get + bonus_passenger_get
-    print(borrowing_rate_percentage)
+
+    final_gui(borrowing_rate_percentage, entry_loan_value)
 
 
 # Launch the main program
