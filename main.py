@@ -1,7 +1,3 @@
-# Import of libraries
-import tkinter as tk
-from tkinter import ttk
-
 # Import the Gui
 from gui import final_gui, loan_info_gui
 from grade import vehicule_grade, energy_grade, mileage_grade, year_grade
@@ -32,8 +28,7 @@ def main():
     bonus_passenger_get = bonus_passenger.bonus_passenger_function(entry_passenger)
 
     # Get the borrowing rate
-    borrowing_rate_get = borrowing_rate.borrowing_rate_function(grade_vehicule_get, grade_energy_get, grade_mileage_get,
-                                                                grade_year_get)
+    borrowing_rate_get = borrowing_rate.borrowing_rate_function(grade_vehicule_get, grade_energy_get, grade_mileage_get, grade_year_get)
 
     # Calculate the borrowing rate percentage
     borrowing_rate_percentage = borrowing_rate_get + bonus_passenger_get
