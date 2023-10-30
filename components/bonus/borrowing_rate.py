@@ -1,5 +1,10 @@
+# Import the error gui
+from components.gui import error_gui
+
+
 # Calculate persentage of borrowing rate for the loan
 def borrowing_rate_function(grade_eco_vehicule, grade_eco_energy, grade_eco_mileage, grade_eco_year):
+
     # Define the grade of the car by adding the grades of the vehicule, energy, mileage and year
     grade_eco_car = grade_eco_vehicule + grade_eco_energy + grade_eco_mileage + grade_eco_year
 
@@ -10,7 +15,10 @@ def borrowing_rate_function(grade_eco_vehicule, grade_eco_energy, grade_eco_mile
         print("The borrowing rate is 3%")
 
         # Define the borrowing rate (3%)
-        borrowing_rate = 3 * 0.01
+        borrowing_rate = 3
+
+        # Return the borrowing rate to the main program
+        return borrowing_rate
 
     # If the grade of the car is between 11 and 15, the borrowing rate is 2.74%
     elif 11 <= grade_eco_car <= 15:
@@ -19,7 +27,10 @@ def borrowing_rate_function(grade_eco_vehicule, grade_eco_energy, grade_eco_mile
         print("The borrowing rate is 2.74%")
 
         # Define the borrowing rate (2.74%)
-        borrowing_rate = 2.74 * 0.01
+        borrowing_rate = 2.74
+
+        # Return the borrowing rate to the main program
+        return borrowing_rate
 
     # If the grade of the car is between 21 and 30, the borrowing rate is 2.52%
     elif 16 <= grade_eco_car <= 25:
@@ -28,7 +39,10 @@ def borrowing_rate_function(grade_eco_vehicule, grade_eco_energy, grade_eco_mile
         print("The borrowing rate is 2.52%")
 
         # Define the borrowing rate (2.52%)
-        borrowing_rate = 2.52 * 0.01
+        borrowing_rate = 2.52
+
+        # Return the borrowing rate to the main program
+        return borrowing_rate
 
     # If the grade of the car is between 26 and 33, the borrowing rate is 2.10%
     elif 26 <= grade_eco_car <= 33:
@@ -37,7 +51,10 @@ def borrowing_rate_function(grade_eco_vehicule, grade_eco_energy, grade_eco_mile
         print("The borrowing rate is 2.10%")
 
         # Define the borrowing rate (2.10%)
-        borrowing_rate = 2.10 * 0.01
+        borrowing_rate = 2.10
+
+        # Return the borrowing rate to the main program
+        return borrowing_rate
 
     # If the grade of the car is between 34 and 40, the borrowing rate is 1.85%
     elif 34 <= grade_eco_car <= 40:
@@ -46,7 +63,10 @@ def borrowing_rate_function(grade_eco_vehicule, grade_eco_energy, grade_eco_mile
         print("The borrowing rate is 1.85%")
 
         # Define the borrowing rate (1.85%)
-        borrowing_rate = 1.85 * 0.01
+        borrowing_rate = 1.85
+
+        # Return the borrowing rate to the main program
+        return borrowing_rate
 
     # If the grade of the car is over 40, it's not possible because max grade is 40
     elif grade_eco_car > 40:
@@ -56,6 +76,7 @@ def borrowing_rate_function(grade_eco_vehicule, grade_eco_energy, grade_eco_mile
 
         # Define and error as borrowing rate ('err-over')
         borrowing_rate = "err-over"
+        error_gui.error_gui(borrowing_rate, "borrowing")
 
     # If the grade of the car is negative, it's not possible because min grade is 0
     elif grade_eco_car < 0:
@@ -65,7 +86,9 @@ def borrowing_rate_function(grade_eco_vehicule, grade_eco_energy, grade_eco_mile
 
         # Define and error as borrowing rate ('err-negative')
         borrowing_rate = "err-negative"
+        error_gui.error_gui(borrowing_rate, "borrowing")
 
+    # If the grade of the car is not recognized, it's not possible
     else:
 
         # Print the error message on the terminal
@@ -73,6 +96,4 @@ def borrowing_rate_function(grade_eco_vehicule, grade_eco_energy, grade_eco_mile
 
         # Define and error as borrowing rate ('err-unknown')
         borrowing_rate = "err-unknown"
-
-    # Return the borrowing rate to the main program
-    return borrowing_rate
+        error_gui.error_gui(borrowing_rate, "borrowing")

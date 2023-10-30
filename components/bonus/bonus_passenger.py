@@ -8,7 +8,7 @@ def bonus_passenger_function(passenger):
         print("The malus is 0.11% for 1 passenger")
 
         # Define the bonus (0.11%)
-        bonus_passenger = 0.11 * 0.01
+        bonus_passenger = 0.11
 
     # If the number of passengers is 2, the bonus is 0.17%
     elif passenger == 2:
@@ -17,7 +17,7 @@ def bonus_passenger_function(passenger):
         print("The bonus is 0.17% for 2 passengers")
 
         # Define the bonus (-0.17%)
-        bonus_passenger = -0.17 * 0.01
+        bonus_passenger = -0.17
 
     # If the number of passengers is 3, the bonus is 0.29%
     elif passenger == 3:
@@ -26,7 +26,7 @@ def bonus_passenger_function(passenger):
         print("The bonus is 0.29% for 3 passengers")
 
         # Define the bonus (-0.29%)
-        bonus_passenger = -0.29 * 0.01
+        bonus_passenger = -0.29
 
     # If the number of passengers is 4, the bonus is 0.53%
     elif passenger == 4:
@@ -35,7 +35,7 @@ def bonus_passenger_function(passenger):
         print("The bonus is 0.53% for 4 passengers")
 
         # Define the bonus (-0.53%)
-        bonus_passenger = -0.53 * 0.01
+        bonus_passenger = -0.53
 
     # If number of passenger over 5, the bonus is not defined
     elif passenger >= 5:
