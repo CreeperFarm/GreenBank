@@ -53,6 +53,6 @@ def loan_info():
     # Vérification des entrées pour voir si les cases sont bien remplies
     if entry_energy_type is "" or entry_vehicule_type is "" or entry_mileage is "" or entry_year is "" or entry_passenger is "":
         print("Il y a une erreur, toutes les cases ne sont pas remplies")
-        error_gui.error_gui("err-not-filled", "")
+        error_gui.error_gui("err-not-filled", " ")
     else:
         return entry_vehicule_type, entry_energy_type, entry_mileage, entry_year, entry_passenger

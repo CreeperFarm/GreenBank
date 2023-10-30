@@ -30,3 +30,5 @@ def final_gui(borrowing_rate_percentage, borrowing_rate, bonus_passenger):
 
     # Show the window
     window_final.mainloop()
+
+    window_final.destroy()
