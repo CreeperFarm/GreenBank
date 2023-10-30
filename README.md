@@ -64,3 +64,7 @@ py main.py
 ### Ce projet est fait avec:
 
 [![J'utilise](https://skillicons.dev/icons?i=py,md,vscode,github)](https://skillicons.dev)
+
+#### Credit
+
+  Dev by DevOtaku (CreeperFarm ou TheOtaku)
